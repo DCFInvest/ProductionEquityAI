@@ -1,0 +1,8 @@
+flask
+sqlalchemy
+psycopg2-binary
+pandas
+yfinance
+pandas_datareader
+pytest
+python-dotenv
