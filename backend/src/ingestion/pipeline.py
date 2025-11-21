@@ -3,7 +3,7 @@ import logging
 from datetime import datetime
 from typing import Callable, List, Sequence
 
-from config import get_settings
+from production_equity_ai.config import get_settings
 from ingestion import data_sources
 from ingestion.validation import (
     FinancialStatementRecord,

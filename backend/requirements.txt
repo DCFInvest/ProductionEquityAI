@@ -6,3 +6,5 @@ yfinance
 pandas_datareader
 pytest
 python-dotenv
+fastapi
+uvicorn[standard]

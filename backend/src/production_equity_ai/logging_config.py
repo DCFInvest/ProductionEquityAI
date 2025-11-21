@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from typing import Optional
 
-from config import get_settings
+from .config import get_settings
 
 
 def configure_logging(log_file: Optional[str] = None) -> None:

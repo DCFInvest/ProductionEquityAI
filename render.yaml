@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: production-equity-ai
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: PYTHONPATH=backend/src uvicorn production_equity_ai.app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: LOG_LEVEL
+        value: INFO
+      - key: YFINANCE_THREADS
+        value: "4"
