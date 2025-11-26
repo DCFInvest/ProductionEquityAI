@@ -6,7 +6,7 @@ from typing import List
 
 import pytest
 
-import config
+from production_equity_ai import config
 from db import session as session_module
 from ingestion import pipeline as pipeline_module
 from ingestion import storage as storage_module

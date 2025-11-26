@@ -3,7 +3,7 @@ import argparse
 import logging
 from datetime import datetime, timedelta
 
-from config import get_settings
+from production_equity_ai.config import get_settings
 from ingestion.pipeline import IngestionPipeline
 
 logger = logging.getLogger(__name__)

@@ -1,16 +1,19 @@
 """Data source clients for ingestion."""
+import logging
 from datetime import datetime
 from typing import List
+
 import yfinance as yf
 from pandas_datareader import data as pdr
 
-from logging_config import logging
 from ingestion.validation import (
     FinancialStatementRecord,
     PriceRecord,
     TreasuryRateRecord,
 )
+from production_equity_ai.logging_config import configure_logging
 
+configure_logging()
 logger = logging.getLogger(__name__)
 
 
