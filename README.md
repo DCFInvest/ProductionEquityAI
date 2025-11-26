@@ -60,3 +60,8 @@ pytest
 - **Outputs**: Populated `companies`, `financial_statements`, `prices`, `treasury_rates`, and ingestion metadata tables with validated, cleaned data ready for downstream analytics.
 - **Integration**: Module 1 feeds the valuation engine (Module 2) via the normalized database. Valuation models can query financials and rates directly. Module 3’s deep learning will use the same tables for supervised training.
 - **Next**: Build the valuation engine (DCF, multiples, comparables) consuming these tables, add API endpoints for retrieval, and extend tests around valuation logic.
+
+## Frontend & Modules 1–7 Integration
+
+- A ChatGPT-style frontend and cross-module orchestration plan lives in `docs/module_integration_plan.md`.
+- The plan outlines a gateway API, task orchestration, module-by-module integration, and Next.js UI surfaces for fundamentals, valuation, forecasting, and deployment.
