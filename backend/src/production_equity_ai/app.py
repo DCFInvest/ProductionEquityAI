@@ -24,7 +24,7 @@ def build_app() -> FastAPI:
     def health() -> dict:
         return {
             "status": "ok",
-            "database_url": settings.database_url,
+            "database": "configured" if settings.database_url else "missing",
             "modules": list(range(1, 8)),
         }
 

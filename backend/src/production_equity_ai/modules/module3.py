@@ -39,6 +39,9 @@ def _price_frame(ticker: str) -> pd.DataFrame:
 
 
 def _latest_features(df: pd.DataFrame, window: int) -> dict:
+    if window <= 0:
+        raise HTTPException(status_code=400, detail="window must be a positive integer")
+
     recent = df.tail(window)
     if len(recent) < window:
         raise HTTPException(
@@ -68,7 +71,10 @@ def _latest_features(df: pd.DataFrame, window: int) -> dict:
 
 
 @router.get("/signals", summary="Derive momentum-based ML signals")
-def signals(ticker: str = Query(..., description="Ticker symbol"), window: int = 30) -> dict:
+def signals(
+    ticker: str = Query(..., description="Ticker symbol"),
+    window: int = Query(30, ge=1, description="Lookback window for features"),
+) -> dict:
     """Generate engineered features and a heuristic label for a ticker."""
 
     df = _price_frame(ticker)

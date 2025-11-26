@@ -39,8 +39,8 @@ def _load_prices(ticker: str) -> pd.DataFrame:
 @router.get("/backtest", summary="Run SMA crossover backtest")
 def backtest(
     ticker: str = Query(..., description="Ticker symbol"),
-    fast_window: int = 20,
-    slow_window: int = 50,
+    fast_window: int = Query(20, ge=1, description="Short moving average window"),
+    slow_window: int = Query(50, ge=1, description="Long moving average window"),
     initial_capital: float = 10_000,
 ) -> dict:
     """Simulate a moving-average crossover strategy against stored price history."""
